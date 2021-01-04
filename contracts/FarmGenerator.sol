@@ -201,7 +201,7 @@ contract FarmGenerator01 is Ownable {
      * @notice Creates a new Farm contract and registers it in the 
      * .sol. All farming rewards are locked in the Farm Contract
      */
-    function createFarm (IERC20 _rewardToken, uint256 _amount, IERC20 _lpToken,IUniFactory _swapFactory, uint256 _blockReward, uint256 _startBlock, uint256 _bonusEndBlock, uint256 _bonus) public onlyOwner payable returns (address){
+    function createFarm (IERC20 _rewardToken, uint256 _amount, IERC20 _lpToken,IUniFactory _swapFactory, uint256 _blockReward, uint256 _startBlock, uint256 _bonusEndBlock, uint256 _bonus) public onlyOwner returns (address){
         require(_startBlock > block.number, 'START'); // ideally at least 24 hours more to give farmers time
         require(_bonus > 0, 'BONUS');
         require(address(_rewardToken) != address(0), 'TOKEN');
